@@ -21,16 +21,22 @@ const workdays=
 ];
 
 
-var btn=document.getElementById("submit");
-// create a boutton click event by calling function
-addEventListener("click",submit);
+// creat a new list
+var list=document.getElementById("days");
+for(var j=0;j<workdays.length;j++){
+    list.innerHTML+="<li></li>";
+}
 
-function submit(){
+var btn=document.getElementById("click-here");
+// create a boutton click event by calling function
+addEventListener("click",click_here);
+
+function click_here(){
     // call the element with the id days and then call all its elements
     var messages= document.getElementById("days").getElementsByTagName("li");
     
     for(var i =1;i<= workdays.length; i++){ 
-        // the program will only send a message on te days that Milad is late 
+        // the program will only send a message on the days that Milad is late 
         if(sending_info[i-1]=="late" && workdays[i-1]=="workday"){
             // insert of random messages
             messages[i-1].innerHTML = `DAY ${i}: ${random_messages[Math.floor(Math.random()*4)]}`;
